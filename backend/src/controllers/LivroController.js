@@ -6,7 +6,8 @@ const fs = require('fs')
 module.exports = {
   // Lista os Livros do mais atual para o mais antigo
   async index(req, res) {
-    const livro = await Livro.find().sort('createdAt');
+    var mysort = { createdAt: -1 };
+    const livro = await Livro.find().sort(mysort);
     return res.json(livro)
   },
 
